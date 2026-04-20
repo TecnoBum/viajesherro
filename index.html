@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transporte V.I.P. - Viajes Seguros</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Banner */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            background-image: url('https://z-cdn-media.chatglm.cn/files/a019e641-0d4c-4c94-8019-7a9c42547f60.png?auth_key=1876443473-4517e3efc5cc4a39a79c33ed1d8a5866-0-fdd6f00590c399184f44fcef7c39498f');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.75) 0%, rgba(0, 102, 153, 0.65) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 215, 0, 0.9);
+            color: #003366;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .hero-badge i {
+            font-size: 1.2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #003366;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #FFE44D 0%, #FFB733 100%);
+        }
+
+        .cta-button i {
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 51, 102, 0.15);
+            border-color: #FFD700;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #003366 0%, #006699 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Gallery Section - Updated with Single Image */
+        .gallery-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .gallery-single {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 51, 102, 0.2);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            aspect-ratio: 16/10;
+        }
+
+        .gallery-single:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 51, 102, 0.3);
+        }
+
+        .gallery-single img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-single:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 51, 102, 0.9) 0%, transparent 60%);
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 40px;
+        }
+
+        .gallery-single:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .gallery-caption i {
+            font-size: 1.8rem;
+            color: #FFD700;
+        }
+
+        .gallery-description {
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            opacity: 0.95;
+            max-width: 500px;
+        }
+
+        /* Capacity Section */
+        .capacity-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .capacity-box {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: linear-gradient(135deg, #003366 0%, #006699 100%);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0, 51, 102, 0.2);
+            text-align: center;
+            color: white;
+        }
+
+        .capacity-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .capacity-title i {
+            font-size: 2.2rem;
+        }
+
+        .capacity-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .capacity-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .capacity-item i {
+            font-size: 1.6rem;
+            color: #FFD700;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .map-container {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 51, 102, 0.2);
+            border: 3px solid #003366;
+        }
+
+        .map-header {
+            background: linear-gradient(135deg, #003366 0%, #006699 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .map-header i {
+            font-size: 2rem;
+        }
+
+        .map-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: block;
+        }
+
+        .map-info {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-top: 3px solid #FFD700;
+        }
+
+        .location-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #003366;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .location-item i {
+            color: #FFD700;
+            font-size: 1.3rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #003366 0%, #006699 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            border-radius: 20px;
+            max-width: 650px;
+            margin: 0 auto;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .contact-description {
+            font-size: 1.3rem;
+            margin: 25px 0 35px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 22px 55px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 55px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
+            }
+            50% {
+                box-shadow: 0 10px 45px rgba(37, 211, 102, 0.7), 0 0 0 15px rgba(37, 211, 102, 0.1);
+            }
+            100% {
+                box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
+            }
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(37, 211, 102, 0.7);
+            animation: none;
+        }
+
+        .whatsapp-btn i {
+            font-size: 2.2rem;
+        }
+
+        .availability-text {
+            margin-top: 30px;
+            font-size: 1.05rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #001a33;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.95rem;
+        }
+
+        footer p:first-child {
+            margin-bottom: 10px;
+        }
+
+        footer p:last-child {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-box {
+                padding: 40px 25px;
+            }
+
+            .cta-button,
+            .whatsapp-btn {
+                padding: 16px 38px;
+                font-size: 1.15rem;
+            }
+
+            .whatsapp-btn {
+                padding: 18px 42px;
+                font-size: 1.3rem;
+            }
+
+            .capacity-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .capacity-title {
+                font-size: 1.6rem;
+            }
+
+            .map-frame {
+                height: 400px;
+            }
+
+            .location-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .map-header h3 {
+                font-size: 1.4rem;
+            }
+
+            .gallery-caption {
+                font-size: 1.3rem;
+            }
+
+            .gallery-description {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-badge {
+                font-size: 0.85rem;
+                padding: 10px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capacity-box {
+                padding: 30px 20px;
+            }
+
+            .whatsapp-btn {
+                padding: 16px 35px;
+                font-size: 1.15rem;
+            }
+
+            .whatsapp-btn i {
+                font-size: 1.8rem;
+            }
+
+            .map-frame {
+                height: 350px;
+            }
+
+            .gallery-overlay {
+                padding: 25px;
+            }
+
+            .gallery-caption {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+    </style>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Hero Section with Banner Image -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                Servicio V.I.P.
+            </div>
+            <h1>Para un viaje seguro,<br>un conductor confiable</h1>
+            <p class="hero-subtitle">Oportunidad V.I.P. - Un trato amable rumbo a su destino</p>
+            <a href="#contacto" class="cta-button">
+                <i class="fas fa-phone-alt"></i>
+                Reservar Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegirnos?</h2>
+            <p class="section-subtitle">Su comodidad y seguridad son nuestra prioridad</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Viajes Seguros</h3>
+                    <p>Conductores confiables y experimentados que garantizan su seguridad en cada trayecto.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Trato V.I.P.</h3>
+                    <p>Servicio personalizado con atención exclusiva y trato amable para cada pasajero.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Municipios Cercanos</h3>
+                    <p>Cobertura en viajes a municipios cercanos con comodidad y puntualidad garantizada.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Comodidad Total</h3>
+                    <p>Vehículos equipados y confortables para que disfrute su viaje al máximo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section - Single Image (NEW IMAGE ONLY) -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Vehículo</h2>
+            <p class="section-subtitle">Vehículo moderno y equipado para su comodidad</p>
+
+            <!-- Single Large Image Display -->
+            <div class="gallery-single">
+                <img src="https://z-cdn-media.chatglm.cn/files/d4366cd3-8064-4961-a744-b768e9690383.jpeg?auth_key=1876695114-b14f62d7411e40708afd35adde857163-0-695217fd2cb2cfa24e37da455835c6ba" 
+                     alt="Vehículo RALI - Vista completa">
+                
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">
+                        <i class="fas fa-car-side"></i>
+                        Vehículo RALI
+                    </span>
+                    <span class="gallery-description">
+                        Diseño moderno con panel solar integrado para mayor eficiencia
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capacity Section -->
+    <section class="capacity-section">
+        <div class="container">
+            <div class="capacity-box">
+                <h3 class="capacity-title">
+                    <i class="fas fa-users"></i>
+                    Capacidad del Vehículo
+                </h3>
+                
+                <div class="capacity-info">
+                    <div class="capacity-item">
+                        <i class="fas fa-user"></i>
+                        <span>Dos Adultos</span>
+                    </div>
+                    
+                    <div class="capacity-item">
+                        <i class="fas fa-child"></i>
+                        <span>Un Menor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section - Centered on Pinar del Río -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <p class="section-subtitle">Servicio disponible en Pinar del Río y municipios cercanos</p>
+
+            <div class="map-container">
+                <div class="map-header">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Pinar del Río, Cuba</h3>
+                </div>
+                
+                <!-- Interactive Map - Pinar del Río Coordinates -->
+                <iframe 
+                    class="map-frame"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190543.09769408!2d-83.59449495!3d22.41483185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8cd42507f0f16fb3%3A0x6b1d6d1e8e8b8e8e!2sPinar+del+R%C3%ADo%2C+Cuba!5e0!3m2!1ses!2s!4v1234567890123!5m2!1ses!2s"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+                <div class="map-info">
+                    <p style="font-size: 1.2rem; color: #003366; font-weight: 600; margin-bottom: 10px;">
+                        <i class="fas fa-info-circle" style="color: #FFD700;"></i>
+                        Zona de Cobertura
+                    </p>
+                    
+                    <div class="location-details">
+                        <div class="location-item">
+                            <i class="fas fa-city"></i>
+                            <span>Pinar del Río</span>
+                        </div>
+                        
+                        <div class="location-item">
+                            <i class="fas fa-route"></i>
+                            <span>Municipios Cercanos</span>
+                        </div>
+
+                        <div class="location-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Servicio Disponible 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Direct to Chat -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="contact-box">
+                <h2>
+                    <i class="fab fa-whatsapp"></i>
+                    Contáctenos Directamente
+                </h2>
+                
+                <p class="contact-description">
+                    Haga clic en el botón para iniciar una conversación inmediata y reservar su viaje
+                </p>
+
+                <!-- Direct WhatsApp Button -->
+                <a href="https://wa.me/5355913433?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20transporte." 
+                   target="_blank" 
+                   class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Iniciar Chat en WhatsApp
+                </a>
+
+                <p class="availability-text">
+                    <i class="fas fa-bolt"></i>
+                    Respuesta inmediata garantizada
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 - Todos los derechos reservados</p>
+        <p>Viaje seguro • Conductor confiable</p>
+    </footer>
+
+</body>
+</html>
