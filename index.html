@@ -204,7 +204,7 @@
             line-height: 1.7;
         }
 
-        /* Gallery Section - Updated with Single Image */
+        /* Gallery Section */
         .gallery-section {
             padding: 80px 20px;
             background: #f8f9fa;
@@ -429,6 +429,140 @@
             margin-right: 5px;
         }
 
+        /* MODAL PERSONALIZADO PARA DESCARGA */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .download-modal {
+            background: white;
+            max-width: 450px;
+            width: 90%;
+            border-radius: 30px;
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-overlay.active .download-modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .modal-header i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-body {
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .modal-body p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .file-info {
+            background: #f3f4f6;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .file-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .file-info i {
+            color: #7C3AED;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .btn-cancel {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 12px 28px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cancel:hover {
+            background: #d1d5db;
+            transform: translateY(-2px);
+        }
+
+        .btn-confirm {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-confirm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+        }
+
         /* Contact Section */
         .contact-section {
             padding: 80px 20px;
@@ -561,63 +695,41 @@
             font-size: 1rem;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.2rem;
             }
-
             .hero-subtitle {
                 font-size: 1.1rem;
             }
-
             .section-title {
                 font-size: 2rem;
             }
-
             .contact-box {
                 padding: 40px 25px;
             }
-
-            .cta-button,
-            .whatsapp-btn {
+            .cta-button, .whatsapp-btn {
                 padding: 16px 38px;
                 font-size: 1.15rem;
             }
-            
             .apk-download-btn {
                 padding: 16px 35px;
                 font-size: 1.2rem;
             }
-            
-            .apk-download-btn i {
-                font-size: 1.6rem;
-            }
-
             .whatsapp-btn {
                 padding: 18px 42px;
                 font-size: 1.3rem;
             }
-
             .capacity-info {
                 flex-direction: column;
                 gap: 15px;
             }
-
-            .capacity-title {
-                font-size: 1.6rem;
-            }
-            
             .apk-card {
                 padding: 35px 25px;
             }
-            
             .apk-card h3 {
                 font-size: 1.8rem;
-            }
-            
-            .apk-description {
-                font-size: 1rem;
             }
         }
 
@@ -625,49 +737,25 @@
             .hero h1 {
                 font-size: 1.8rem;
             }
-
-            .hero-badge {
-                font-size: 0.85rem;
-                padding: 10px 20px;
-            }
-
             .features-grid {
                 grid-template-columns: 1fr;
             }
-
-            .capacity-box {
-                padding: 30px 20px;
-            }
-
             .whatsapp-btn {
                 padding: 16px 35px;
                 font-size: 1.15rem;
             }
-
-            .whatsapp-btn i {
-                font-size: 1.8rem;
-            }
-            
             .apk-download-btn {
                 padding: 14px 28px;
                 font-size: 1.1rem;
             }
-            
-            .apk-download-btn i {
-                font-size: 1.4rem;
-            }
-            
-            .apk-info {
+            .modal-buttons {
                 flex-direction: column;
-                gap: 10px;
             }
-            
-            .footer-credits {
-                font-size: 0.8rem;
+            .btn-cancel, .btn-confirm {
+                width: 100%;
             }
         }
 
-        /* Animation */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -684,12 +772,10 @@
         }
     </style>
 
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Hero Section with Banner Image -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">
@@ -705,41 +791,28 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="services">
         <div class="container">
             <h2 class="section-title">¿Por qué elegirnos?</h2>
             <p class="section-subtitle">Su comodidad y seguridad son nuestra prioridad</p>
-
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Viajes Seguros</h3>
                     <p>Conductores confiables y experimentados que garantizan su seguridad en cada trayecto.</p>
                 </div>
-
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-crown"></i></div>
                     <h3>Trato V.I.P.</h3>
                     <p>Servicio personalizado con atención exclusiva y trato amable para cada pasajero.</p>
                 </div>
-
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
                     <h3>Municipios Cercanos</h3>
                     <p>Cobertura en viajes a municipios cercanos con comodidad y puntualidad garantizada.</p>
                 </div>
-
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-couch"></i>
-                    </div>
+                    <div class="feature-icon"><i class="fas fa-couch"></i></div>
                     <h3>Comodidad Total</h3>
                     <p>Vehículos equipados y confortables para que disfrute su viaje al máximo.</p>
                 </div>
@@ -747,73 +820,44 @@
         </div>
     </section>
 
-    <!-- Gallery Section - Single Image -->
     <section class="gallery-section">
         <div class="container">
             <h2 class="section-title">Vehículo</h2>
             <p class="section-subtitle">Vehículo moderno y equipado para su comodidad</p>
-
-            <!-- Single Large Image Display -->
             <div class="gallery-single">
-                <img src="https://www.image2url.com/r2/default/images/1776695724612-a745e8b5-8557-4a82-aaef-081c91d6398f.jpeg" 
-                     alt="Vehículo RALI con panel solar">
-                
+                <img src="https://www.image2url.com/r2/default/images/1776695724612-a745e8b5-8557-4a82-aaef-081c91d6398f.jpeg" alt="Vehículo RALI con panel solar">
                 <div class="gallery-overlay">
-                    <span class="gallery-caption">
-                        <i class="fas fa-car-side"></i>
-                        Vehículo RALI
-                    </span>
-                    <span class="gallery-description">
-                        Diseño moderno con panel solar integrado para mayor eficiencia
-                    </span>
+                    <span class="gallery-caption"><i class="fas fa-car-side"></i> Vehículo RALI</span>
+                    <span class="gallery-description">Diseño moderno con panel solar integrado para mayor eficiencia</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Capacity Section -->
     <section class="capacity-section">
         <div class="container">
             <div class="capacity-box">
-                <h3 class="capacity-title">
-                    <i class="fas fa-users"></i>
-                    Capacidad del Vehículo
-                </h3>
-                
+                <h3 class="capacity-title"><i class="fas fa-users"></i> Capacidad del Vehículo</h3>
                 <div class="capacity-info">
-                    <div class="capacity-item">
-                        <i class="fas fa-user"></i>
-                        <span>Dos Adultos</span>
-                    </div>
-                    
-                    <div class="capacity-item">
-                        <i class="fas fa-child"></i>
-                        <span>Un Menor</span>
-                    </div>
+                    <div class="capacity-item"><i class="fas fa-user"></i><span>Dos Adultos</span></div>
+                    <div class="capacity-item"><i class="fas fa-child"></i><span>Un Menor</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download APK Section - Descarga directa sin advertencia de Drive -->
+    <!-- Download APK Section - CON MODAL PERSONALIZADO -->
     <section class="download-apk-section">
         <div class="container">
             <div class="apk-card">
-                <div class="apk-icon">
-                    <i class="fab fa-android"></i>
-                </div>
+                <div class="apk-icon"><i class="fab fa-android"></i></div>
                 <h3>Descarga Nuestra App</h3>
-                <p class="apk-description">
-                    Accede a promociones exclusivas, reserva más rápido y gestiona tus viajes desde tu teléfono.
-                </p>
+                <p class="apk-description">Accede a promociones exclusivas, reserva más rápido y gestiona tus viajes desde tu teléfono.</p>
                 
-                <!-- Botón con descarga directa que evita la pantalla de advertencia de Google Drive -->
-                <a href="https://drive.usercontent.google.com/download?id=12rpAVL4a2rXlFE7wPbFL57s_90d8BvhE&export=download&confirm=t&authuser=0"
-                   class="apk-download-btn"
-                   download="Viajes_Herros.apk">
+                <button class="apk-download-btn" id="openDownloadModal">
                     <i class="fas fa-download"></i>
                     Descargar APK
-                </a>
+                </button>
                 
                 <div class="apk-info">
                     <span><i class="fas fa-check-circle"></i> Archivo seguro</span>
@@ -824,64 +868,109 @@
         </div>
     </section>
 
-    <!-- Contact Section - Direct to Chat -->
+    <!-- MODAL PERSONALIZADO PARA CONFIRMAR DESCARGA -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="download-modal">
+            <div class="modal-header">
+                <i class="fas fa-download"></i>
+                <h3>Descargar Aplicación</h3>
+                <p style="opacity: 0.9;">¿Estás listo para descargar?</p>
+            </div>
+            <div class="modal-body">
+                <p>Estás a punto de descargar la aplicación <strong>Viajes Herro's</strong> para Android.</p>
+                <div class="file-info">
+                    <span><i class="fas fa-file"></i> Viajes Herro's.apk</span>
+                    <span><i class="fas fa-database"></i> 7.6 MB</span>
+                    <span><i class="fab fa-android"></i> Android</span>
+                </div>
+                <p style="font-size: 0.9rem; color: #6B7280;">Al hacer clic en "Aceptar", la descarga comenzará automáticamente.</p>
+                <div class="modal-buttons">
+                    <button class="btn-cancel" id="closeModal">Cancelar</button>
+                    <button class="btn-confirm" id="confirmDownload">
+                        <i class="fas fa-check"></i> Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="contact-section" id="contacto">
         <div class="container">
             <div class="contact-box">
-                <h2>
-                    <i class="fab fa-whatsapp"></i>
-                    Contáctenos Directamente
-                </h2>
-                
-                <p class="contact-description">
-                    Haga clic en el botón para iniciar una conversación inmediata y reservar su viaje
-                </p>
-
-                <!-- Direct WhatsApp Button -->
-                <a href="https://wa.me/5355913433?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20transporte." 
-                   target="_blank" 
-                   class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    Iniciar Chat en WhatsApp
+                <h2><i class="fab fa-whatsapp"></i> Contáctenos Directamente</h2>
+                <p class="contact-description">Haga clic en el botón para iniciar una conversación inmediata y reservar su viaje</p>
+                <a href="https://wa.me/5355913433?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20transporte." target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Iniciar Chat en WhatsApp
                 </a>
-
-                <p class="availability-text">
-                    <i class="fas fa-bolt"></i>
-                    Respuesta inmediata garantizada
-                </p>
+                <p class="availability-text"><i class="fas fa-bolt"></i> Respuesta inmediata garantizada</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 - Todos los derechos reservados</p>
         <p>Viaje seguro • Conductor confiable</p>
         <div class="footer-credits">
-            <a href="https://www.instagram.com/astykdigitalstudio/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-                Desarrollado por Astyk Digital Studio
+            <a href="https://www.instagram.com/astykdigitalstudio/" target="_blank">
+                <i class="fab fa-instagram"></i> Desarrollado por Astyk Digital Studio
             </a>
         </div>
     </footer>
 
-    <!-- Script para forzar la descarga directa y evitar la advertencia de Drive -->
     <script>
-        document.querySelector('.apk-download-btn').addEventListener('click', function(e) {
-            // Prevenir el comportamiento por defecto temporalmente
-            e.preventDefault();
-            
-            // Usar el enlace de descarga directa de Google Drive que omite la advertencia
-            var downloadUrl = 'https://drive.usercontent.google.com/download?id=12rpAVL4a2rXlFE7wPbFL57s_90d8BvhE&export=download&confirm=t&authuser=0';
-            
-            // Crear un elemento <a> temporal y simular el click
-            var link = document.createElement('a');
+        // Elementos del modal
+        const modal = document.getElementById('downloadModal');
+        const openBtn = document.getElementById('openDownloadModal');
+        const closeBtn = document.getElementById('closeModal');
+        const confirmBtn = document.getElementById('confirmDownload');
+
+        // URL de descarga directa (evita la pantalla de advertencia de Drive)
+        const downloadUrl = 'https://drive.usercontent.google.com/download?id=12rpAVL4a2rXlFE7wPbFL57s_90d8BvhE&export=download&confirm=t&authuser=0';
+
+        // Función para abrir el modal
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Función para iniciar la descarga (sin redirigir a Google Drive)
+        function startDownload() {
+            // Crear un elemento <a> invisible para la descarga
+            const link = document.createElement('a');
             link.href = downloadUrl;
             link.download = 'Viajes_Herros.apk';
-            link.target = '_blank';
+            link.style.display = 'none';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+            
+            // Cerrar el modal después de iniciar la descarga
+            closeModal();
+        }
+
+        // Eventos
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        confirmBtn.addEventListener('click', startDownload);
+
+        // Cerrar modal al hacer clic en el overlay
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
         });
     </script>
 </body>
