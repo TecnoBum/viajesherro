@@ -340,76 +340,93 @@
             color: #FFD700;
         }
 
-        /* Map Section */
-        .map-section {
+        /* Download APK Section - NEW (Replaces Map) */
+        .download-apk-section {
             padding: 80px 20px;
-            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
-        }
-
-        .map-container {
-            max-width: 1100px;
-            margin: 40px auto 0;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 45px rgba(0, 51, 102, 0.2);
-            border: 3px solid #003366;
-        }
-
-        .map-header {
-            background: linear-gradient(135deg, #003366 0%, #006699 100%);
-            color: white;
-            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9eef3 100%);
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
         }
 
-        .map-header i {
-            font-size: 2rem;
+        .apk-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 51, 102, 0.15);
+            padding: 50px 40px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 51, 102, 0.1);
         }
 
-        .map-header h3 {
-            font-size: 1.8rem;
+        .apk-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 51, 102, 0.2);
+        }
+
+        .apk-icon {
+            font-size: 5rem;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        .apk-card h3 {
+            font-size: 2.2rem;
+            color: #003366;
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
-        .map-frame {
-            width: 100%;
-            height: 500px;
+        .apk-description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .apk-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 60px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
             border: none;
-            display: block;
+            cursor: pointer;
         }
 
-        .map-info {
-            background: white;
-            padding: 25px;
-            text-align: center;
-            border-top: 3px solid #FFD700;
+        .apk-download-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.6);
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
         }
 
-        .location-details {
+        .apk-download-btn i {
+            font-size: 2rem;
+        }
+
+        .apk-info {
+            margin-top: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #555;
         }
 
-        .location-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #003366;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .location-item i {
-            color: #FFD700;
-            font-size: 1.3rem;
+        .apk-info i {
+            color: #10B981;
+            margin-right: 5px;
         }
 
         /* Contact Section */
@@ -539,6 +556,15 @@
                 padding: 16px 38px;
                 font-size: 1.15rem;
             }
+            
+            .apk-download-btn {
+                padding: 16px 35px;
+                font-size: 1.2rem;
+            }
+            
+            .apk-download-btn i {
+                font-size: 1.6rem;
+            }
 
             .whatsapp-btn {
                 padding: 18px 42px;
@@ -553,25 +579,16 @@
             .capacity-title {
                 font-size: 1.6rem;
             }
-
-            .map-frame {
-                height: 400px;
+            
+            .apk-card {
+                padding: 35px 25px;
             }
-
-            .location-details {
-                flex-direction: column;
-                gap: 15px;
+            
+            .apk-card h3 {
+                font-size: 1.8rem;
             }
-
-            .map-header h3 {
-                font-size: 1.4rem;
-            }
-
-            .gallery-caption {
-                font-size: 1.3rem;
-            }
-
-            .gallery-description {
+            
+            .apk-description {
                 font-size: 1rem;
             }
         }
@@ -602,17 +619,19 @@
             .whatsapp-btn i {
                 font-size: 1.8rem;
             }
-
-            .map-frame {
-                height: 350px;
-            }
-
-            .gallery-overlay {
-                padding: 25px;
-            }
-
-            .gallery-caption {
+            
+            .apk-download-btn {
+                padding: 14px 28px;
                 font-size: 1.1rem;
+            }
+            
+            .apk-download-btn i {
+                font-size: 1.4rem;
+            }
+            
+            .apk-info {
+                flex-direction: column;
+                gap: 10px;
             }
         }
 
@@ -696,7 +715,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section - Single Image (NEW IMAGE ONLY) -->
+    <!-- Gallery Section - Single Image -->
     <section class="gallery-section">
         <div class="container">
             <h2 class="section-title">Vehículo</h2>
@@ -705,7 +724,7 @@
             <!-- Single Large Image Display -->
             <div class="gallery-single">
                 <img src="https://www.image2url.com/r2/default/images/1776695724612-a745e8b5-8557-4a82-aaef-081c91d6398f.jpeg" 
-                     alt="">
+                     alt="Vehículo RALI con panel solar">
                 
                 <div class="gallery-overlay">
                     <span class="gallery-caption">
@@ -744,49 +763,30 @@
         </div>
     </section>
 
-    <!-- Map Section - Centered on Pinar del Río -->
-    <section class="map-section">
+    <!-- NEW: Download APK Section (Replaces Map) -->
+    <section class="download-apk-section">
         <div class="container">
-            <h2 class="section-title">Ubicación</h2>
-            <p class="section-subtitle">Servicio disponible en Pinar del Río y municipios cercanos</p>
-
-            <div class="map-container">
-                <div class="map-header">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Pinar del Río, Cuba</h3>
+            <div class="apk-card">
+                <div class="apk-icon">
+                    <i class="fab fa-android"></i>
                 </div>
+                <h3>Descarga Nuestra App</h3>
+                <p class="apk-description">
+                    Accede a promociones exclusivas, reserva más rápido y gestiona tus viajes desde tu teléfono.
+                </p>
                 
-                <!-- Interactive Map - Pinar del Río Coordinates -->
-                <iframe 
-                    class="map-frame"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190543.09769408!2d-83.59449495!3d22.41483185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8cd42507f0f16fb3%3A0x6b1d6d1e8e8b8e8e!2sPinar+del+R%C3%ADo%2C+Cuba!5e0!3m2!1ses!2s!4v1234567890123!5m2!1ses!2s"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-
-                <div class="map-info">
-                    <p style="font-size: 1.2rem; color: #003366; font-weight: 600; margin-bottom: 10px;">
-                        <i class="fas fa-info-circle" style="color: #FFD700;"></i>
-                        Zona de Cobertura
-                    </p>
-                    
-                    <div class="location-details">
-                        <div class="location-item">
-                            <i class="fas fa-city"></i>
-                            <span>Pinar del Río</span>
-                        </div>
-                        
-                        <div class="location-item">
-                            <i class="fas fa-route"></i>
-                            <span>Municipios Cercanos</span>
-                        </div>
-
-                        <div class="location-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Servicio Disponible 24/7</span>
-                        </div>
-                    </div>
+                <!-- Enlace de descarga directa (evita la vista previa de Drive) -->
+                <a href="https://drive.usercontent.google.com/download?id=12rpAVL4a2rXlFE7wPbFL57s_90d8BvhE&export=download&authuser=0&confirm=t"
+                   class="apk-download-btn"
+                   download>
+                    <i class="fas fa-download"></i>
+                    Descargar APK
+                </a>
+                
+                <div class="apk-info">
+                    <span><i class="fas fa-check-circle"></i> Archivo seguro</span>
+                    <span><i class="fas fa-shield-alt"></i> Versión oficial</span>
+                    <span><i class="fas fa-bolt"></i> Instalación rápida</span>
                 </div>
             </div>
         </div>
@@ -826,6 +826,5 @@
         <p>&copy; 2026 - Todos los derechos reservados</p>
         <p>Viaje seguro • Conductor confiable</p>
     </footer>
-
 </body>
 </html>
