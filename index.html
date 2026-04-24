@@ -340,7 +340,7 @@
             color: #FFD700;
         }
 
-        /* Download APK Section - NEW (Replaces Map) */
+        /* Download APK Section */
         .download-apk-section {
             padding: 80px 20px;
             background: linear-gradient(135deg, #f5f7fa 0%, #e9eef3 100%);
@@ -520,7 +520,7 @@
             background: #001a33;
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 35px 20px;
             font-size: 0.95rem;
         }
 
@@ -528,9 +528,37 @@
             margin-bottom: 10px;
         }
 
-        footer p:last-child {
+        footer p:nth-child(2) {
+            margin-bottom: 15px;
             font-size: 0.85rem;
             opacity: 0.8;
+        }
+
+        .footer-credits {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .footer-credits a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-credits a:hover {
+            color: #FFA500;
+            text-decoration: underline;
+            transform: translateY(-2px);
+        }
+
+        .footer-credits i {
+            font-size: 1rem;
         }
 
         /* Responsive Design */
@@ -632,6 +660,10 @@
             .apk-info {
                 flex-direction: column;
                 gap: 10px;
+            }
+            
+            .footer-credits {
+                font-size: 0.8rem;
             }
         }
 
@@ -763,7 +795,7 @@
         </div>
     </section>
 
-    <!-- NEW: Download APK Section (Replaces Map) -->
+    <!-- Download APK Section - Descarga directa sin advertencia de Drive -->
     <section class="download-apk-section">
         <div class="container">
             <div class="apk-card">
@@ -775,10 +807,10 @@
                     Accede a promociones exclusivas, reserva más rápido y gestiona tus viajes desde tu teléfono.
                 </p>
                 
-                <!-- Enlace de descarga directa (evita la vista previa de Drive) -->
-                <a href="https://drive.usercontent.google.com/download?id=12rpAVL4a2rXlFE7wPbFL57s_90d8BvhE&export=download&authuser=0&confirm=t"
+                <!-- Botón con descarga directa que evita la pantalla de advertencia de Google Drive -->
+                <a href="https://drive.usercontent.google.com/download?id=12rpAVL4a2rXlFE7wPbFL57s_90d8BvhE&export=download&confirm=t&authuser=0"
                    class="apk-download-btn"
-                   download>
+                   download="Viajes_Herros.apk">
                     <i class="fas fa-download"></i>
                     Descargar APK
                 </a>
@@ -825,6 +857,32 @@
     <footer>
         <p>&copy; 2026 - Todos los derechos reservados</p>
         <p>Viaje seguro • Conductor confiable</p>
+        <div class="footer-credits">
+            <a href="https://www.instagram.com/astykdigitalstudio/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+                Desarrollado por Astyk Digital Studio
+            </a>
+        </div>
     </footer>
+
+    <!-- Script para forzar la descarga directa y evitar la advertencia de Drive -->
+    <script>
+        document.querySelector('.apk-download-btn').addEventListener('click', function(e) {
+            // Prevenir el comportamiento por defecto temporalmente
+            e.preventDefault();
+            
+            // Usar el enlace de descarga directa de Google Drive que omite la advertencia
+            var downloadUrl = 'https://drive.usercontent.google.com/download?id=12rpAVL4a2rXlFE7wPbFL57s_90d8BvhE&export=download&confirm=t&authuser=0';
+            
+            // Crear un elemento <a> temporal y simular el click
+            var link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = 'Viajes_Herros.apk';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
 </body>
 </html>
